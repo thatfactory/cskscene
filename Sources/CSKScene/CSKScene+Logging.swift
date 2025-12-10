@@ -21,7 +21,7 @@ public extension CSKScene {
     /// in the *macOS Console app*.
     ///
     /// In the **macOS Console app**, you can filter CSKScene's output by
-    /// `SUBSYSTEM`: `com.backslash-f.CSKScene`.
+    /// `SUBSYSTEM`: `com.thatfactory.CSKScene`.
     func enableLogging() {
         CSKScene.isLoggingEnabled = true
     }
@@ -45,7 +45,7 @@ internal extension CSKScene {
         guard isLoggingEnabled else {
             return
         }
-        let subsystem = "com.backslash-f.CSKScene"
+        let subsystem = "com.thatfactory.CSKScene"
         let logger = AppLogger(subsystem: subsystem, category: category.rawValue)
         logger.log(information)
     }

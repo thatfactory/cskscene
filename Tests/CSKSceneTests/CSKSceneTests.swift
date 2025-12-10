@@ -1,7 +1,7 @@
 import XCTest
 @testable import CSKScene
 
-final class CSKSceneTests: XCTestCase {
+@MainActor final class CSKSceneTests: XCTestCase {
 
     func testAllDebugOptionsAreEnabledByDefault() {
         let cskscene = CSKScene(size: .zero)
@@ -38,13 +38,6 @@ final class CSKSceneTests: XCTestCase {
     func testGCOverseerIsValid() {
         let cskscene = CSKScene(size: .zero)
         XCTAssertNotNil(cskscene.gcOverseer)
-        XCTAssertFalse(cskscene.gcOverseer.isGameControllerConnected)
+        XCTAssertTrue(cskscene.gcOverseer.controllers.isEmpty)
     }
-
-    static var allTests = [
-        ("testAllDebugOptionsAreEnabledByDefault", testAllDebugOptionsAreEnabledByDefault),
-        ("testDebugOptionsAreDisabled", testDebugOptionsAreDisabled),
-        ("testSomeDebugOptionsAreDisabled", testSomeDebugOptionsAreDisabled),
-        ("testGCOverseerIsValid", testGCOverseerIsValid)
-    ]
 }

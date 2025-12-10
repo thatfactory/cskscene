@@ -1,36 +1,47 @@
-// swift-tools-version:5.5
+// swift-tools-version:6.2
 
 import PackageDescription
 
 let package = Package(
     name: "CSKScene",
     platforms: [
-        .iOS(.v14),
-        .macOS(.v11),
+        .iOS(.v18),
+        .macOS(.v15),
         .tvOS(.v14),
         .watchOS(.v7)
     ],
     products: [
         .library(
             name: "CSKScene",
-            targets: ["CSKScene"]),
+            targets: ["CSKScene"])
     ],
     dependencies: [
-        .package(name: "AppLogger", url: "https://github.com/backslash-f/applogger", from: "1.0.0"),
-        .package(name: "GCOverseer", url: "https://github.com/backslash-f/gcoverseer", from: "0.0.1")
+        .package(
+            url: "https://github.com/thatfactory/applogger",
+            from: "0.1.0"
+        ),
+        .package(
+            url: "https://github.com/thatfactory/gcoverseer",
+            from: "0.1.0"
+        )
     ],
     targets: [
         .target(
             name: "CSKScene",
             dependencies: [
-                "AppLogger",
-                "GCOverseer"
+                .product(
+                    name: "AppLogger",
+                    package: "applogger"
+                ),
+                .product(
+                    name: "GCOverseer",
+                    package: "gcoverseer"
+                )
             ]
         ),
         .testTarget(
             name: "CSKSceneTests",
             dependencies: ["CSKScene"]
         )
-    ],
-    swiftLanguageVersions: [.v5]
+    ]
 )
