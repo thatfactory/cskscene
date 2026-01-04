@@ -42,24 +42,32 @@ private extension SKScene {
 
     /*
      macOS uses a different coordinate systems. These functions handle that.
+     The #else fallback defaults to iOS-style coordinates and asserts to surface
+     unsupported platforms during development.
      */
 
     func highestScenePoint(in skView: SKView) -> CGPoint {
         let topY: CGPoint
-        #if os(iOS) || os(tvOS) || os(watchOS)
+        #if os(iOS) || os(tvOS) || os(watchOS) || os(visionOS)
         topY = .zero
         #elseif os(OSX)
         topY = CGPoint(x: .zero, y: skView.bounds.size.height)
+        #else
+        assertionFailure("Unsupported platform for highestScenePoint(in:)")
+        topY = .zero
         #endif
         return topY
     }
 
     func lowestScenePoint(in skView: SKView) -> CGPoint {
         let bottomY: CGPoint
-        #if os(iOS) || os(tvOS) || os(watchOS)
+        #if os(iOS) || os(tvOS) || os(watchOS) || os(visionOS)
         bottomY = CGPoint(x: .zero, y: skView.bounds.size.height)
         #elseif os(OSX)
         bottomY = .zero
+        #else
+        assertionFailure("Unsupported platform for lowestScenePoint(in:)")
+        bottomY = CGPoint(x: .zero, y: skView.bounds.size.height)
         #endif
         return bottomY
     }
