@@ -1,14 +1,14 @@
-// swift-tools-version:6.2
+// swift-tools-version:6.4
 
 import PackageDescription
 
 let package = Package(
     name: "CSKScene",
     platforms: [
-        .iOS(.v18),
-        .macOS(.v15),
-        .tvOS(.v18),
-        .watchOS(.v7)
+        .iOS(.v27),
+        .macOS(.v27),
+        .tvOS(.v27),
+        .watchOS(.v27)
     ],
     products: [
         .library(
@@ -22,7 +22,7 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/thatfactory/gcoverseer",
-            from: "0.1.1"
+            from: "0.1.2"
         )
     ],
     targets: [
