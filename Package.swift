@@ -5,10 +5,10 @@ import PackageDescription
 let package = Package(
     name: "CSKScene",
     platforms: [
-        .iOS(.v27),
-        .macOS(.v27),
-        .tvOS(.v27),
-        .watchOS(.v27)
+        .iOS(.v26),
+        .macOS(.v26),
+        .tvOS(.v26),
+        .watchOS(.v26)
     ],
     products: [
         .library(
