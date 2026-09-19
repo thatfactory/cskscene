@@ -1,8 +1,8 @@
 import XCTest
+
 @testable import CSKScene
 
 @MainActor final class CSKSceneTests: XCTestCase {
-
     func testAllDebugOptionsAreEnabledByDefault() {
         let cskscene = CSKScene(size: .zero)
         XCTAssertTrue(cskscene.debugSettings.showsFPS)

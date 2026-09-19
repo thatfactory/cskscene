@@ -5,14 +5,13 @@ import Foundation
 ///
 /// Refer to: https://developer.apple.com/documentation/os/logging
 public enum CSKSceneLoggingCategory: String {
-    case error          = "CSKScene_Error"
-    case sklifecycle    = "CSKScene_SpriteKitLifecycle"
+    case error = "CSKScene_Error"
+    case sklifecycle = "CSKScene_SpriteKitLifecycle"
 }
 
 // MARK: - Interface
 
-public extension CSKScene {
-
+extension CSKScene {
     // MARK: Enable / Disable Logging
 
     /// Enables logging information via `AppLogger`.
@@ -22,20 +21,19 @@ public extension CSKScene {
     ///
     /// In the **macOS Console app**, you can filter CSKScene's output by
     /// `SUBSYSTEM`: `com.thatfactory.CSKScene`.
-    func enableLogging() {
+    public func enableLogging() {
         CSKScene.isLoggingEnabled = true
     }
 
     /// Disables logging information via `AppLogger`.
-    func disableLogging() {
+    public func disableLogging() {
         CSKScene.isLoggingEnabled = false
     }
 }
 
 // MARK: - Internal
 
-internal extension CSKScene {
-
+extension CSKScene {
     /// Logs the given `String` information via `AppLogger`.
     ///
     /// - Parameters:

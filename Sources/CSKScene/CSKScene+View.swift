@@ -1,17 +1,16 @@
 import Foundation
 import GameplayKit
+
 import class Foundation.Bundle
 
-public extension CSKScene {
-
+extension CSKScene {
     /// Loads the `GKScene`'s root node and returns it as `CSKScene`.
     ///
     /// Notice: the class name must match the filename.
     /// E.g.: for a class named `StartScene`, the function tries to load a file named `StartScene.sks`.
     ///
     /// - Returns: The root node of a `GKScene` as a `CSKScene` instance.
-    static func makeScene<T: CSKScene>() -> T {
-
+    public static func makeScene<T: CSKScene>() -> T {
         let filename = String(describing: self)
 
         // Load a GKScene object from a SKS file.

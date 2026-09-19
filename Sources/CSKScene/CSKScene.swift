@@ -9,7 +9,6 @@ import SpriteKit
 /// @StateObject private var scene: CSKScene { ... }
 /// ```
 open class CSKScene: SKScene, ObservableObject {
-
     // MARK: - Properties
 
     public var debugSettings = DebugSettings() {
@@ -43,7 +42,6 @@ open class CSKScene: SKScene, ObservableObject {
 // MARK: - SpriteKit
 
 extension CSKScene {
-
     open override func didChangeSize(_ oldSize: CGSize) {
         super.didChangeSize(oldSize)
         logSceneSize()
@@ -58,27 +56,26 @@ extension CSKScene {
 
 // MARK: - Private
 
-private extension CSKScene {
-
-    func updateDebugSettings() {
+extension CSKScene {
+    fileprivate func updateDebugSettings() {
         #if DEBUG
-        view?.showsFPS          = debugSettings.showsFPS
-        view?.showsFields       = debugSettings.showsFields
-        view?.showsPhysics      = debugSettings.showsPhysics
-        view?.showsDrawCount    = debugSettings.showsDrawCount
-        view?.showsNodeCount    = debugSettings.showsNodeCount
-        view?.showsQuadCount    = debugSettings.showsQuadCount
+            view?.showsFPS = debugSettings.showsFPS
+            view?.showsFields = debugSettings.showsFields
+            view?.showsPhysics = debugSettings.showsPhysics
+            view?.showsDrawCount = debugSettings.showsDrawCount
+            view?.showsNodeCount = debugSettings.showsNodeCount
+            view?.showsQuadCount = debugSettings.showsQuadCount
         #endif
     }
 
-    func setupDefaultViewOptions() {
+    fileprivate func setupDefaultViewOptions() {
         view?.ignoresSiblingOrder = true
         #if os(iOS)
-        view?.isMultipleTouchEnabled = true
+            view?.isMultipleTouchEnabled = true
         #endif
     }
 
-    func logSceneSize() {
+    fileprivate func logSceneSize() {
         CSKScene.log(information: "Scene size: \(size)", category: .sklifecycle)
     }
 }
