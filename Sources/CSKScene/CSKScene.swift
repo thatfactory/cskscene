@@ -1,6 +1,6 @@
-import Combine
-import GCOverseer
-import SpriteKit
+public import Combine
+public import GCOverseer
+public import SpriteKit
 
 /// A custom `SKScene` subclass with debug options enabled by default and an instance of `GCOverseer`.
 ///

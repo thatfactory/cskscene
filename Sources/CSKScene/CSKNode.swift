@@ -1,5 +1,5 @@
-import Combine
-import SpriteKit
+public import Combine
+public import SpriteKit
 
 /// A `SKNode` subclass that provides observable properties based on `KVO`.
 open class CSKNode: SKNode, ObservableObject {

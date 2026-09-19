@@ -31,7 +31,7 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/thatfactory/gcoverseer",
-            from: "0.1.2"
+            from: "0.1.3"
         ),
     ],
     targets: [
