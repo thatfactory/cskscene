@@ -1,7 +1,6 @@
+import CSKSceneTests
 import XCTest
 
-import CSKSceneTests
-
-var tests = [XCTestCaseEntry]()
+var tests: [XCTestCaseEntry] = []
 tests += CSKSceneTests.allTests()
 XCTMain(tests)

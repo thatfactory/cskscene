@@ -1,10 +1,9 @@
-import Foundation
+public import Foundation
 import SpriteKit
 
-public extension CSKScene {
-
+extension CSKScene {
     /// The "highest `SKScene` point" converted from the "highest `SKView` point".
-    var viewTop: CGFloat {
+    public var viewTop: CGFloat {
         guard let skView = view else {
             return .zero
         }
@@ -12,7 +11,7 @@ public extension CSKScene {
     }
 
     /// The "lowest `SKScene` point" converted from the "lowest`SKView` point".
-    var viewBottom: CGFloat {
+    public var viewBottom: CGFloat {
         guard let skView = view else {
             return .zero
         }
@@ -20,12 +19,12 @@ public extension CSKScene {
     }
 
     /// The "leftmost `SKScene` point" converted from the "leftmost`SKView` point".
-    var viewLeft: CGFloat {
+    public var viewLeft: CGFloat {
         convertPoint(fromView: .zero).x
     }
 
     /// The "rightmost `SKScene` point" converted from the "rightmost`SKView` point".
-    var viewRight: CGFloat {
+    public var viewRight: CGFloat {
         guard let view = view else {
             return .zero
         }
@@ -36,38 +35,35 @@ public extension CSKScene {
 
 // MARK: - Private
 
-private extension SKScene {
-
+extension SKScene {
     // MARK: Coordinate System
 
-    /*
-     macOS uses a different coordinate systems. These functions handle that.
-     The #else fallback defaults to iOS-style coordinates and asserts to surface
-     unsupported platforms during development.
-     */
+    // macOS uses a different coordinate system. These functions handle that.
+    // The #else fallback defaults to iOS-style coordinates and asserts to surface
+    // unsupported platforms during development.
 
-    func highestScenePoint(in skView: SKView) -> CGPoint {
+    fileprivate func highestScenePoint(in skView: SKView) -> CGPoint {
         let topY: CGPoint
         #if os(iOS) || os(tvOS) || os(watchOS) || os(visionOS)
-        topY = .zero
+            topY = .zero
         #elseif os(OSX)
-        topY = CGPoint(x: .zero, y: skView.bounds.size.height)
+            topY = CGPoint(x: .zero, y: skView.bounds.size.height)
         #else
-        assertionFailure("Unsupported platform for highestScenePoint(in:)")
-        topY = .zero
+            assertionFailure("Unsupported platform for highestScenePoint(in:)")
+            topY = .zero
         #endif
         return topY
     }
 
-    func lowestScenePoint(in skView: SKView) -> CGPoint {
+    fileprivate func lowestScenePoint(in skView: SKView) -> CGPoint {
         let bottomY: CGPoint
         #if os(iOS) || os(tvOS) || os(watchOS) || os(visionOS)
-        bottomY = CGPoint(x: .zero, y: skView.bounds.size.height)
+            bottomY = CGPoint(x: .zero, y: skView.bounds.size.height)
         #elseif os(OSX)
-        bottomY = .zero
+            bottomY = .zero
         #else
-        assertionFailure("Unsupported platform for lowestScenePoint(in:)")
-        bottomY = CGPoint(x: .zero, y: skView.bounds.size.height)
+            assertionFailure("Unsupported platform for lowestScenePoint(in:)")
+            bottomY = CGPoint(x: .zero, y: skView.bounds.size.height)
         #endif
         return bottomY
     }

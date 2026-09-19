@@ -61,20 +61,22 @@ class MyScene: CSKScene {
 ```
 
 ## Available Properties
-Property | Description | Notes
--------- | ----------- | -----
-`var viewTop: CGFloat`| The "highest `SKScene` point" converted from the "highest `SKView` point". | -
-`var viewBottom: CGFloat`| The "lowest `SKScene` point" converted from the "lowest`SKView` point". | -
-`var viewLeft: CGFloat`| The "leftmost `SKScene` point" converted from the "leftmost`SKView` point". | -
-`var viewRight: CGFloat`| The "rightmost `SKScene` point" converted from the "rightmost`SKView` point". | -
+
+| Property | Description | Notes |
+| --- | --- | --- |
+| `var viewTop: CGFloat` | The "highest `SKScene` point" converted from the "highest `SKView` point". | - |
+| `var viewBottom: CGFloat` | The "lowest `SKScene` point" converted from the "lowest`SKView` point". | - |
+| `var viewLeft: CGFloat` | The "leftmost `SKScene` point" converted from the "leftmost`SKView` point". | - |
+| `var viewRight: CGFloat` | The "rightmost `SKScene` point" converted from the "rightmost`SKView` point". | - |
 
 ## Default Values
+
 These properties have the following default values:
 
-Property name | Default value | Notes
---- | --- | ---
-[ignoresSiblingOrder](https://developer.apple.com/documentation/spritekit/skview/1520215-ignoressiblingorder) | `true` | Prevents arbitrary z positions that may change every time a new frame is rendered.
-[isMultipleTouchEnabled](https://developer.apple.com/documentation/uikit/uiview/1622519-ismultipletouchenabled) | `true` | Surprinsingly this had to be set to `true` to support multiple touches when working with [SceneView](https://developer.apple.com/documentation/scenekit/sceneview) / SwiftUI.
+| Property name | Default value | Notes |
+| --- | --- | --- |
+| [ignoresSiblingOrder](https://developer.apple.com/documentation/spritekit/skview/1520215-ignoressiblingorder) | `true` | Prevents arbitrary z positions that may change every time a new frame is rendered. |
+| [isMultipleTouchEnabled](https://developer.apple.com/documentation/uikit/uiview/1622519-ismultipletouchenabled) | `true` | Surprinsingly this had to be set to `true` to support multiple touches when working with [SceneView](https://developer.apple.com/documentation/scenekit/sceneview) / SwiftUI. |
 
 To set then to `false`, override `CSKScene.didMove(to:)` in your subclass. For example:
 ```swift
@@ -124,7 +126,7 @@ In your `Package.swift`, add `CSKScene` as a dependency:
 dependencies: [
     .package(
         url: "https://github.com/thatfactory/cskscene",
-        from: "0.1.3"
+        from: "0.1.4"
     )
 ]
 ```
